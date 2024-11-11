@@ -60,3 +60,52 @@ void bubbleSort(node *head) {
     }
 }
 
+void display(node *head) {
+    node *temp = head;
+    int i;
+    for(i = 0; temp != NULL; i++) {
+        printf("%d -> ", temp -> data);
+        temp = temp -> next;
+    }
+    printf("NULL");
+}
+
+int main() {
+    node *head = NULL;
+    int choice, item;
+
+    while (1) {
+        printf("\n1. Insert\n");
+        printf("2. Sort\n");
+        printf("3. Display\n");
+        printf("4. Exit\n");
+        printf("Enter a choice: ");
+        scanf("%d", &choice);
+
+        switch (choice) {
+            case 1:
+                printf("Enter the item to be inserted: ");
+            scanf("%d", &item);
+            insert(&head, item);
+            printf("Current List: ");
+            display(head);
+            break;
+
+            case 2:
+                bubbleSort(head);
+            printf("Sorted List: ");
+            display(head);
+            break;
+
+            case 3:
+                display(head);
+            break;
+
+            case 4:
+                return 0;
+
+            default:
+                printf("Invalid choice\n");
+        }
+    }
+}
