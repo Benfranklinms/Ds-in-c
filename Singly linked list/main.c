@@ -8,7 +8,7 @@ typedef struct Node {
     struct Node* next;
 };
 
-struct node node;
+typedef struct node node;
 
 node *createNode(int item){
   node *newnode = (node*)malloc(sizeof(node));
